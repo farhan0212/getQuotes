@@ -7,18 +7,26 @@ pipeline {
     stages {
         stage ("hello build") {
             steps {
-                echo("hello build")
+                echo("hello build 1")
+                echo("hello build 2")
+                echo("hello build 3")
+
             }
         }
         stage ("Test") {
             steps {
-                echo("hello Test")
-                sh("error")
+                echo("hello Test 1")
+                echo("hello Test 2")
+                echo("hello Test 3")
+
             }
         }
         stage ("Deploy") {
             steps {
-                echo("hello Deploy")
+                echo("hello Deploy 1")
+                echo("hello Deploy 2")
+                echo("hello Deploy 3")
+
             }
         }
     }
