@@ -1,11 +1,18 @@
 pipeline {
     agent none
+
+    environment {
+        AUTHOR = "farhan"
+    }
+
+
     stages {
-        stage("prepared") {
+        stage ("prepared") {
             agent {
                 label 'nodejs'
             }
             steps {
+                echo("author : ${env.AUTHOR}")
                 echo("start job : ${env.JOB_NAME}")
                 echo("start build : ${env.BUILD_ID}")
                 echo("start build number : ${env.BUILD_NUMBER}")
