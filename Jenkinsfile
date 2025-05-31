@@ -7,11 +7,9 @@ pipeline {
     stages {
         stage ("hello build") {
             steps {
-                echo("hello build 1")
-                sleep(5)
-                echo("hello build 2")
-                echo("hello build 3")
-
+                echo("start build 1")
+                sh("npm run build")
+                echo("finish build")
             }
         }
         stage ("Test") {
