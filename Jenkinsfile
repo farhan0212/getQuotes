@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        node {
-            label 'nodejs && agent1'
-        }
-    }
+    agent any
     stages {
         stage ("hello build") {
             steps {
