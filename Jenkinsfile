@@ -5,13 +5,11 @@ pipeline {
     stages {
         stage ("hello build") {
             steps {
-                echo("start install")
-                sh("npm install")
-                echo("finish install")
-                echo("start build")
-                sh("npm run build")
-                echo("finish build")
+                echo("start loop")
+               script {
+                    for (int i = 0; i < 10; i++) {
+                        echo("hello world ${i}")
+                }
             }
-        }
         }
     }
