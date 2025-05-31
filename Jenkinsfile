@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'nodejs'
+    }
     stages {
         stage ("hello build") {
             steps {
@@ -11,6 +13,5 @@ pipeline {
                 echo("finish build")
             }
         }
- 
         }
     }
