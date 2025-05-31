@@ -1,10 +1,10 @@
 pipeline {
     agent none
     stages {
-        agent{
-            label 'nodejs'
-        }
         stage("prepared") {
+            agent {
+                label 'nodejs'
+            }
             steps {
                 echo("start job : ${env.JOB_NAME}")
                 echo("start build : ${env.BUILD_ID}")
@@ -12,7 +12,7 @@ pipeline {
             }
         }
         stage ("hello build") {
-            agent{
+            agent {
                 label 'nodejs'
             }
             steps {
