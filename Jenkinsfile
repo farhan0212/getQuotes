@@ -1,18 +1,16 @@
 pipeline {
-    agent {
-        label 'nodejs'
-    }
+    agent none
     stages {
         stage ("hello build") {
+            agent{
+                label 'nodejs'
+            }
             steps {
                 echo("start loop")
-               script {
-                  def data = [
-                    [name: "Alice", age: 30],
-                    [name: "Bob", age: 25],
-                    [name: "Charlie", age: 35]
-                  ]
-                  writeJSON(file: 'data.json', json: data, pretty: 4)
+                script {
+                    for (int i = 0; i < 5; i++) {
+                        echo("Hello, World! ${i}")
+                    }
                 }
             }
         }
