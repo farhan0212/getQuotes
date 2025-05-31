@@ -7,11 +7,14 @@ pipeline {
             steps {
                 echo("start loop")
                script {
-                    for (int i = 0; i < 10; i++) {
-                        echo("hello world ${i}")
+                  def data = [
+                    [name: "Alice", age: 30],
+                    [name: "Bob", age: 25],
+                    [name: "Charlie", age: 35]
+                  ]
+                  writeJSON(file: 'data.json', json: data, pretty: 4)
                 }
             }
         }
-    }
     }
 }
