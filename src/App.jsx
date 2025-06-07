@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 function App() {
-  const url = "https://dummyjson.com/quotes?limit=6";
+  const url = "https://dummyjson.com/quotes?limit=10";
 
   const [quotes, setQuotes] = useState([]);
 
