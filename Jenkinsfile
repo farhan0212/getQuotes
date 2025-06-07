@@ -7,10 +7,7 @@ pipeline {
         WEB = "farhanrmdn.my.id"
     }
 
-    input {
-        message: 'Do you want to proceed?'
-        ok: 'Yes, proceed'
-        }
+ 
 
 
     // parameters{
@@ -28,6 +25,10 @@ pipeline {
 
 
     stages {
+        input{
+            message: 'Do you want to proceed?'
+            ok: 'Yes, proceed'
+        }
         stage ("prepared") {
             agent {
                 label 'nodejs'
