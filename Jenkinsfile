@@ -14,6 +14,19 @@ pipeline {
 
 
     stages {
+
+        stage ("preparation") {
+            agent{
+                label 'nodejs'
+            }
+        }
+        stages{
+            stage ("prepare install"){
+                steps {
+                    echo("Preparing to install dependencies...")
+                }
+            }
+        }
     
         stage ("hello build") {
             agent {
@@ -26,7 +39,7 @@ pipeline {
                 }
             }
         }
-        stage("deploy"){
+        stage ("deploy") {
             input{
                 message 'Do you want to proceed with the deployment?'
                 ok 'Yes, proceed'
