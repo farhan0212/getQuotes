@@ -52,8 +52,8 @@ pipeline {
         }
         stage("deploy"){
             input{
-                message: 'Do you want to proceed with the deployment?'
-                ok: 'Yes, proceed'
+                message 'Do you want to proceed with the deployment?'
+                ok 'Yes, proceed'
                 parameters{
                     booleanParam(name: 'DEPLOY', defaultValue: true, description: 'Deploy the application?')
                 }
