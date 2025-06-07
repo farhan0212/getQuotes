@@ -7,9 +7,6 @@ pipeline {
         WEB = "farhanrmdn.my.id"
     }
 
- 
-
-
     options {
         disableConcurrentBuilds()
         timeout(time: 5, unit: 'MINUTES')
@@ -18,27 +15,6 @@ pipeline {
 
     stages {
     
-        stage ("prepared") {
-            input{
-            message 'Do you want to proceed?'
-            ok 'Yes, proceed'
-            submitter "farhan"
-            parameters{
-                choice(name: 'GREETING', choices: ['Hello', 'Hi', 'Greetings'], description: 'Select a greeting')
-            }
-            }
-            agent {
-                label 'nodejs'
-            }
-            steps {
-                echo("author : ${env.AUTHOR}")
-                echo("email : ${env.EMAIL}")
-                echo("web : ${env.WEB}")
-                echo("start job : ${env.JOB_NAME}")
-                echo("start build : ${env.BUILD_ID}")
-                echo("start build number : ${env.BUILD_NUMBER}")
-            }
-        }
         stage ("hello build") {
             agent {
                 label 'nodejs'
