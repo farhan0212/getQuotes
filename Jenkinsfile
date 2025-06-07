@@ -27,12 +27,13 @@ pipeline {
     stages {
     
         stage ("prepared") {
-            agent {
-                label 'nodejs'
-            }
             input{
             message: 'Do you want to proceed?'
             ok: 'Yes, proceed'
+            submitter "farhan"
+            }
+            agent {
+                label 'nodejs'
             }
             steps {
                 echo("author : ${env.AUTHOR}")
