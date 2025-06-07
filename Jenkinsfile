@@ -7,10 +7,10 @@ pipeline {
         WEB = "farhanrmdn.my.id"
     }
 
-    options {
-        disableConcurrentBuilds()
-        timeout(time: 5, unit: 'SECONDS')
-    }
+    // options {
+    //     disableConcurrentBuilds()
+    //     timeout(time: 5, unit: 'SECONDS')
+    // }
 
 
     stages {
