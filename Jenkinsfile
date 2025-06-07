@@ -28,8 +28,8 @@ pipeline {
     
         stage ("prepared") {
             input{
-            message: 'Do you want to proceed?'
-            ok: 'Yes, proceed'
+            message 'Do you want to proceed?'
+            ok 'Yes, proceed'
             submitter "farhan"
             }
             agent {
