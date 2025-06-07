@@ -10,14 +10,6 @@ pipeline {
  
 
 
-    // parameters{
-    //     string(name: 'GREETING', defaultValue: 'Hello', description: 'Greeting message')
-    //     choice(name: 'LANGUAGE', choices: ['English', 'Indonesian', 'Japanese'], description: 'Select a language')
-    //     booleanParam(name: 'ENABLE_FEATURE', defaultValue: true, description: 'Enable feature flag')
-    //     text(name: 'COMMENTS', defaultValue: 'No comments', description: 'Add your comments here')
-    //     password(name: 'SECRET', defaultValue: '', description: 'Enter your secret password')
-    // }
-
     options {
         disableConcurrentBuilds()
         timeout(time: 5, unit: 'MINUTES')
@@ -31,6 +23,9 @@ pipeline {
             message 'Do you want to proceed?'
             ok 'Yes, proceed'
             submitter "farhan"
+            parameters{
+                choice(name: 'GREETING', choices: ['Hello', 'Hi', 'Greetings'], description: 'Select a greeting')
+            }
             }
             agent {
                 label 'nodejs'
