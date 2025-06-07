@@ -8,7 +8,7 @@ pipeline {
     }
 
     triggers{
-        cron('*/5 * * * *') // Runs every 5 minutes
+        pollSCM('H/15 * * * *') // Poll SCM every 15 minutes
     }
 
     // parameters{
