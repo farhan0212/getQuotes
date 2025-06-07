@@ -33,7 +33,8 @@ pipeline {
             }
             steps {
                 script {
-                    npm install
+                    def name = "${env.AUTHOR}"
+                    echo("Hello ${name}")
                 }
             }
         }
