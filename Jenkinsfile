@@ -25,13 +25,14 @@ pipeline {
 
 
     stages {
-        input{
-            message: 'Do you want to proceed?'
-            ok: 'Yes, proceed'
-        }
+    
         stage ("prepared") {
             agent {
                 label 'nodejs'
+            }
+            input{
+            message: 'Do you want to proceed?'
+            ok: 'Yes, proceed'
             }
             steps {
                 echo("author : ${env.AUTHOR}")
