@@ -50,18 +50,27 @@ pipeline {
                 }
             }
         }
-    //         stage ("parameters") {
-    //         agent {
-    //             label 'nodejs'
-    //         }
-    //         steps {
-    //             echo("Greeting: ${params.GREETING}")
-    //             echo("Language: ${params.LANGUAGE}")
-    //             echo("Feature Enabled: ${params.ENABLE_FEATURE}")
-    //             echo("Comments: ${params.COMMENTS}")
-    //             echo("Secret: ${params.SECRET}")
-    //         }
-    //     }
-    // }
+        stage("deploy"){
+            input{
+                message: 'Do you want to proceed with the deployment?'
+                ok: 'Yes, proceed'
+                parameters{
+                    booleanParam(name: 'DEPLOY', defaultValue: true, description: 'Deploy the application?')
+                }
+            }
+            when{
+                expression {
+                    return params.DEPLOY
+                }
+            }
+            agent {
+                label 'nodejs'
+            }
+            steps {
+                script {
+                    echo("Deploying application...")
+                }
+            }
+        }
 }
 }
