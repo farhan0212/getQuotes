@@ -19,13 +19,13 @@ pipeline {
             agent{
                 label 'nodejs'
             }
-        }
         stages{
             stage ("prepare install"){
                 steps {
                     echo("Preparing to install dependencies...")
                 }
             }
+        }
         }
     
         stage ("hello build") {
