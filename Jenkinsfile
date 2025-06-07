@@ -32,11 +32,8 @@ pipeline {
                 label 'nodejs'
             }
             steps {
-                echo("start loop")
                 script {
-                    for (int i = 0; i < 5; i++) {
-                        echo("Hello, World! ${i}")
-                    }
+                    npm install
                 }
             }
         }
