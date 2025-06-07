@@ -7,10 +7,13 @@ pipeline {
         WEB = "farhanrmdn.my.id"
     }
 
-    triggers{
-        pollSCM('H/15 * * * *') // Poll SCM every 15 minutes
-    }
+    input(message: 'Do you want to proceed?', ok: 'Yes, proceed', parameters: [
+        string(name: 'AUTHOR', defaultValue: 'farhan', description: 'Enter your name'),
+        string(name: 'EMAIL', defaultValue: 'farhan@gmail.com', description: 'Enter your email'),
+        string(name: 'WEB', defaultValue: 'farhanrmdn.my.id', description: 'Enter your website'),
+    ])
 
+    
     // parameters{
     //     string(name: 'GREETING', defaultValue: 'Hello', description: 'Greeting message')
     //     choice(name: 'LANGUAGE', choices: ['English', 'Indonesian', 'Japanese'], description: 'Select a language')
