@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 
     environment {
         AUTHOR = "farhan"
@@ -16,9 +16,7 @@ pipeline {
     stages {
 
         stage ("preparation") {
-            agent{
-                label 'nodejs'
-            }
+       
         stages{
             stage ("prepare install"){
                 steps {
@@ -29,9 +27,7 @@ pipeline {
         }
     
         stage ("hello build") {
-            agent {
-                label 'nodejs'
-            }
+          
             steps {
                 script {
                     def name = "${env.AUTHOR}"
@@ -52,9 +48,7 @@ pipeline {
                     return params.DEPLOY
                 }
             }
-            agent {
-                label 'nodejs'
-            }
+     
             steps {
                 script {
                     echo("Deploying application...")
