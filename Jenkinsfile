@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'docker-agent'
+    }
 
     environment {
         SSH_CREDENTIALS_ID = '26dc69fa-f0a0-4c62-8f3d-2d76a25701b4'
