@@ -6,7 +6,7 @@ pipeline {
         SSH_HOST = '159.223.95.88'
         SSH_USERNAME = 'github'
         DOCKERHUB_CREDENTIALS = 'Docker'
-        IMAGE_NAME = 'portovite/test'
+        IMAGE_NAME = 'farhan0212/get-quotes'
     }
 
     stages {
@@ -34,6 +34,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
+                    sh "docker push ${IMAGE_NAME}:${BUILD_NUMBER}"
                 }
             }
         }
