@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SSH_CREDENTIALS_ID = '26dc69fa-f0a0-4c62-8f3d-2d76a25701b4'
+        SSH_CREDENTIALS_ID = 'ssh-server'
         SSH_HOST = '159.223.95.88'
         SSH_USERNAME = 'github'
         DOCKERHUB_CREDENTIALS = 'Docker'
