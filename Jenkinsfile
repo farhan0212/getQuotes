@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 
     environment {
         SSH_CREDENTIALS_ID = '26dc69fa-f0a0-4c62-8f3d-2d76a25701b4'
@@ -14,7 +14,6 @@ pipeline {
             agent {
                 docker {
                     image 'node:22-alpine'
-                    reuseNode true
                 }
             }
                 steps{
