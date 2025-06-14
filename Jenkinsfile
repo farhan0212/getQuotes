@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters{
+        choice (name: 'ENVIRONMENT', choices: ['development', 'staging', 'production'], description: 'Select the environment to deploy')
+    }
+
     environment {
         SSH_CREDENTIALS_ID = 'ssh-server'
         SSH_HOST = '159.223.95.88'
@@ -14,6 +18,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:22-alpine'
+                    reuseNode true
                 }
             }
                 steps{
